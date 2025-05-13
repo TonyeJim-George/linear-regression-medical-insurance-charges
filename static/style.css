@@ -115,3 +115,33 @@ body {
   font-weight: bold;
   color: #f1f1f1;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-form {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .login-form h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .form-input-material input,
+  .form-input-material select {
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login-form {
+    width: 70%;
+  }
+}
+
