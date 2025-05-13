@@ -3,76 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Insurance Cost Prediction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            padding-top: 60px;
-        }
-        form {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-            width: 400px;
-        }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-        }
-        button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            font-size: 16px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .result {
-            margin-top: 20px;
-            font-weight: bold;
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <form action="/predict" method="POST">
-        <h2>Insurance Cost Predictor</h2>
-        <label>Age:</label>
-        <input type="number" name="age" required>
-        
-        <label>Sex:</label>
-        <select name="sex">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+    <form action="/predict" method="POST" class="login-form">
+        <h2>Medical Insurance Charges Predictor</h2>
 
-        <label>BMI:</label>
-        <input type="number" step="0.1" name="bmi" required>
+        <div class="form-input-material">
+            <label>Age:</label>
+            <input type="number" name="age" required>
+        </div>
 
-        <label>Children:</label>
-        <input type="number" name="children" required>
+        <div class="form-input-material">
+            <label>Sex:</label>
+            <select name="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
 
-        <label>Smoker:</label>
-        <select name="smoker">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
+        <div class="form-input-material">
+            <label>BMI:</label>
+            <input type="number" step="0.1" name="bmi" required>
+        </div>
 
-        <label>Region:</label>
-        <select name="region">
-            <option value="southwest">Southwest</option>
-            <option value="southeast">Southeast</option>
-            <option value="northwest">Northwest</option>
-            <option value="northeast">Northeast</option>
-        </select>
+        <div class="form-input-material">
+            <label>Children:</label>
+            <input type="number" name="children" required>
+        </div>
 
-        <button type="submit">Predict</button>
+        <div class="form-input-material">
+            <label>Smoker:</label>
+            <select name="smoker">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="form-input-material">
+            <label>Region:</label>
+            <select name="region">
+                <option value="southwest">Southwest</option>
+                <option value="southeast">Southeast</option>
+                <option value="northwest">Northwest</option>
+                <option value="northeast">Northeast</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn">Predict</button>
 
         {% if prediction_text %}
             <div class="result">{{ prediction_text }}</div>
